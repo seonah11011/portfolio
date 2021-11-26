@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iink House</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+  *{margin: 0; padding: 0; box-sizing: border-box;}
+  ul,li{list-style: none;}
+  a {text-decoration: none; color: inherit;}
+  html {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #ccc;
+  }
+
+  .flex {display: flex;}
+
+  #container {
+    width: 36vmin; height: 64vmin;
+    /* border: lightpink 1px solid; */
+    margin: 0 auto;
+    padding: 15vmin 6vmin;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+  }
+
+  #logo {
+    width: 14.5vmin; height: 14.5vmin;
+  }
+
+  #logo img {
+    width: 14.5vmin; height: 14.5vmin;
+  }
+  p {
+    font-size: larger;
+    letter-spacing: 0.3vmin;
+    padding: 2vmin; 
+  }
+
+/* 
+  #menu {
+    width: 25vmin; height: 30vmin
+  } */
+
+  #menu li{
+    width: 25vmin; height: 5vmin;
+    border: 1px solid #888;
+  }
+
+  #menu li:nth-child(1){
+    margin-top: 7vmin;
+  }
+  #menu li:nth-child(2){
+    margin-top: 1vmin;
+  }
+  #menu li:nth-child(3){
+    margin-top: 1vmin;
+    margin-bottom: 3vmin;
+  }
+  
+  #menu li a {
+    width: 25vmin; height: 5vmin;
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #555;
+    line-height: 5vmin;
+  }
+
+
+  
+</style>
+<body>
+  <div id="container" class="flex">
+    <div id="logo">
+      <a href="#"><img src="./img/inkhouse_logo.png" alt="logo"></a>
+    </div>
+    <p>INK HOUSE</p>
+
+    <ul id="menu">
+      <li><a href="#">잉크 DIY</a></li>
+      <li><a href="#">만년필체험</a></li>
+      <li><a href="#">예약하기</a></li>
+    </ul>
+
+    <span>@블루블랙 펜샵</span>
+  </div>
+
+  <script>
+    const menu = document.querySelector('#menu');
+    console.dir(menu);
+    const menuLi = document.querySelectorAll('#menu li')
+    console.dir(menuLi);
+
+    menu.addEventListener('mouseover', function(e){
+      console.dir(e.target);//배열로 받는다!
+      e.target.style.backgroundColor ='#888';
+
+      // e.target.style.backgroundColor ='#888';
+      // 로 할 경우는 ul의 부분도 인지해서 색이 바뀜
+      // e.target.children[0] 의 경우 자식인 li는 영향을 받지만
+      // 딱 그 배열만 선택했으므로 다른 함수가 더 필요함.
+    });
+
+    //   for (let i=0; i<menuLi.length; i++){
+    //     e.target.style.backgroundColor ='#888';
+    // }
+
+    menu.addEventListener('mouseout', function(e){
+      e.target.style.backgroundColor = ''; //공백으로 두면 이전 상태를 유지 
+    });
+  </script>
+</body>
+</html>
